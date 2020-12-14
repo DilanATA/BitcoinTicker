@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="coin"
+            type="com.dilanata.bitcointicker.model.coins.CryptoModel" />
+    </data>
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/coin_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:singleLine="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@{coin.symbol}"
+            android:layout_margin="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/coin_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:singleLine="true"
+            android:layout_centerInParent="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/coin_name"
+            app:layout_constraintEnd_toStartOf="@+id/fav_coin"
+            android:text="@{coin.name}"
+            android:layout_margin="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/fav_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fav_icon_default"
+            android:background="@android:color/white"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
+</layout>
